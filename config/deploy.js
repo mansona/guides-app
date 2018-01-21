@@ -1,6 +1,12 @@
 /* eslint-env node */
 
-const credentials = require('./credentials.json');
+let credentials;
+
+try {
+  credentials = require('./credentials.json');
+} catch (e) {
+  credentials = {};
+}
 
 module.exports = function(deployTarget) {
   var ENV = {
