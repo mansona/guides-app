@@ -1,7 +1,7 @@
 ---
 language: node_js
 node_js:
-  - "6"
+  - "8"
 
 sudo: required
 dist: trusty
@@ -48,5 +48,9 @@ env:
 before_install:
   - npm install -g npm@5
   - npm config set spin false
+
+script:
+  - npm run lint:js
+  - npm test
 
 after_success: ember deploy production --activate
